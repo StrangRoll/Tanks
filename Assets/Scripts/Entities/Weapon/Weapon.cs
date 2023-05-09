@@ -12,6 +12,5 @@ namespace Entities.Weapon
         {
             
         }
-
     }
 }
