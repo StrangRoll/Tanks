@@ -1,16 +1,26 @@
 using Entities.Move;
 using Entities.Move.MoveInputs;
-using Entities.Weapon;
 using UnityEngine;
 
-public abstract class Tank : MonoBehaviour
+namespace Entities
 {
-    protected Weapon Weapon;
-    protected IMoveType MoveType;
-    protected IMoveInput MoveInput;
+    public abstract class Tank : MonoBehaviour
+    {
+        [SerializeField] protected float Speed;
+    
+        protected Weapon.Weapon Weapon;
+        protected IMoveType MoveType;
+        protected IMoveInput MoveInput;
 
-    protected float Speed;
+        public void Move(Vector3 direction)
+        {
+            MoveType.Move(direction, Speed);
+        }
+        
+        public abstract void Shoot();
 
-    public abstract void Move();
-    public abstract void Shoot();
+        protected abstract void SetMoveType();
+        protected abstract void SetMoveInput();
+        protected abstract void SetWeapon();
+    }
 }
