@@ -5,15 +5,22 @@ namespace Entities.Move.MoveTypes
     public class SimpleMoving : IMoveType
     {
         private readonly Transform _movingObject;
+        private Vector2 _direction;
         
         public SimpleMoving(Transform objectToMove)
         {
             _movingObject = objectToMove;
         }
-        
-        public void Move(Vector3 movingInput, float speed)
+
+        public void Move(float speed)
         {
-            _movingObject.Translate(movingInput * Time.deltaTime * speed);
+            _movingObject.Translate(_direction * Time.deltaTime * speed);
+
+        }
+
+        public void ChangeDirection(Vector2 newDirection)
+        {
+            _direction = newDirection;
         }
     }
 }

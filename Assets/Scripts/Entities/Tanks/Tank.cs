@@ -12,9 +12,14 @@ namespace Entities.Tanks
         protected IMoveType MoveType;
         protected IMoveInput MoveInput;
 
-        public void Move(Vector3 direction)
+        public void Move()
         {
-            MoveType.Move(direction, Speed);
+            MoveType.Move(Speed);
+        }
+
+        public void ChangeMovingDirection(Vector2 newDirection)
+        {
+            MoveType.ChangeDirection(newDirection);
         }
         
         public abstract void Shoot();
