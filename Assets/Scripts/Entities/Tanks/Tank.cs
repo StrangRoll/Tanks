@@ -1,8 +1,8 @@
-using Entities.Move;
 using Entities.Move.MoveInputs;
+using Entities.Move.MoveTypes;
 using UnityEngine;
 
-namespace Entities
+namespace Entities.Tanks
 {
     public abstract class Tank : MonoBehaviour
     {

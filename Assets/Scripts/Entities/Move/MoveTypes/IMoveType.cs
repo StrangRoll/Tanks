@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Entities.Move
+namespace Entities.Move.MoveTypes
 {
     public interface IMoveType
     {
