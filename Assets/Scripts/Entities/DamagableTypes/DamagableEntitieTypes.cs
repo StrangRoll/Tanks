@@ -5,6 +5,7 @@ namespace Entities.DamagableTypes
         Player,
         Enemy,
         Destroyable,
-        NotDestroyable
+        NotDestroyable,
+        Bullet
     }
 }

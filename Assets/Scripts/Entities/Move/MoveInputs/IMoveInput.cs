@@ -5,6 +5,6 @@ namespace Entities.Move.MoveInputs
 {
     public interface IMoveInput
     {
-        public event UnityAction<Vector3> DirectionChanged;
+        public event UnityAction<Vector2> DirectionChanged;
     }
 }

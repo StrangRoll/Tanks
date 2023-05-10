@@ -35,7 +35,7 @@ namespace InputSystem
         private void OnRightMove(InputAction.CallbackContext context)
         {
             var direction = context.ReadValue<Vector2>();
-            direction = ChangeDirection(direction, _lastLeftDirection);
+            direction = ChangeDirection(direction, _lastRightDirection);
 
             _lastRightDirection = direction;
             RightTankDirectionChanged?.Invoke(direction);

@@ -1,3 +1,4 @@
+using System;
 using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using UnityEngine;
@@ -12,20 +13,35 @@ namespace Entities.Tanks
         protected IMoveType MoveType;
         protected IMoveInput MoveInput;
 
-        public void Move()
+        private void Awake()
+        {
+            SetMoveType();
+            SetMoveInput();
+            SetWeapon();
+        }
+
+        private void OnEnable()
+        {
+            MoveInput.DirectionChanged += OnDirectionChanged;
+        }
+
+        private void Update()
         {
             MoveType.Move(Speed);
         }
 
-        public void ChangeMovingDirection(Vector2 newDirection)
+        private void OnDisable()
         {
-            MoveType.ChangeDirection(newDirection);
+            MoveInput.DirectionChanged -= OnDirectionChanged;
         }
-        
-        public abstract void Shoot();
 
         protected abstract void SetMoveType();
         protected abstract void SetMoveInput();
         protected abstract void SetWeapon();
+
+        private void OnDirectionChanged(Vector2 newDirection)
+        {
+            MoveType.ChangeDirection(newDirection);
+        }
     }
 }
