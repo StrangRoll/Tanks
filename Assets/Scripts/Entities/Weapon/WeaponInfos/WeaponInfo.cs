@@ -1,7 +1,7 @@
 using Entities.Bullets;
 using UnityEngine;
 
-namespace Entities.Weapon.WeaponInfo
+namespace Entities.Weapon.WeaponInfos
 {
     [CreateAssetMenu(fileName = "NewWeaponInfo", menuName = "MyGame/Weapon/WeaponInfo")]
     public class WeaponInfo : ScriptableObject

@@ -2,7 +2,7 @@ using Entities.DamagableTypes;
 using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
-using Entities.Weapon.WeaponInfo;
+using Entities.Weapon.WeaponInfos;
 using Entities.Weapon.WeaponTypes;
 using InputSystem;
 using Systems;

@@ -1,5 +1,6 @@
 using Entities.Bullets;
 using Entities.DamagableTypes;
+using Entities.Weapon.WeaponInfos;
 using Systems;
 using UnityEngine;
 
@@ -9,14 +10,14 @@ namespace Entities.Weapon.WeaponTypes
     {
         private TimeCounter _timeCounter;
         private readonly Transform _bulletSpawnPosition;
-        private readonly WeaponInfo.WeaponInfo _weaponInfo;
+        private readonly WeaponInfo _weaponInfo;
         private bool _isReadyToFire = true;
         private bool _isFireButtonPress = false;
         private Vector2 _shootDirection;
         private DamagableEntitieTypes[] _damagableEntitiesArray;
 
         protected Weapon(DamagableEntitieTypes[] damagableEntitiesArray, Transform bulletSpawnPosition, 
-            WeaponInfo.WeaponInfo weaponInfo, TimeCounter timeCounter)
+            WeaponInfo weaponInfo, TimeCounter timeCounter)
         {
             _damagableEntitiesArray = damagableEntitiesArray;
             _bulletSpawnPosition = bulletSpawnPosition;

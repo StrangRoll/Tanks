@@ -1,5 +1,6 @@
 using Entities.Bullets;
 using Entities.DamagableTypes;
+using Entities.Weapon.WeaponInfos;
 using NTC.Global.Pool;
 using Systems;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Entities.Weapon.WeaponTypes
 {
     public class Pistol : Weapon
     {
-        public Pistol(DamagableEntitieTypes[] damagableEntitiesArray, Transform bulletSpawnPosition, WeaponInfo.WeaponInfo weaponInfo, TimeCounter timeCounter) : base(damagableEntitiesArray, bulletSpawnPosition, weaponInfo, timeCounter)
+        public Pistol(DamagableEntitieTypes[] damagableEntitiesArray, Transform bulletSpawnPosition, WeaponInfo weaponInfo, TimeCounter timeCounter) : base(damagableEntitiesArray, bulletSpawnPosition, weaponInfo, timeCounter)
         {
         }
 
