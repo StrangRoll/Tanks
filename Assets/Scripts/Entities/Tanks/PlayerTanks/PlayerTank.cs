@@ -24,5 +24,10 @@ namespace Entities.Tanks.PlayerTanks
         {
             return;
         }
+
+        protected override void SetWeaponInput()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
