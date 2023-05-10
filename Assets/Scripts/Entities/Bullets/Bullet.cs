@@ -1,26 +1,24 @@
-using System;
 using Entities.DamagableTypes;
 using UnityEngine;
 
 namespace Entities.Bullets
 {
     public class Bullet : MonoBehaviour
-    {
+    {        
         private DamagableEntitieTypes[] _damagableEntitiesArray;
+        private Vector2 _shootDirection;
+        private float _speed;
 
-        public void Init(DamagableEntitieTypes[] damagableEntitiesArray)
+        public void Init(DamagableEntitieTypes[] damagableEntitiesArray, Vector2 shootDirection, float speed)
         {
             _damagableEntitiesArray = damagableEntitiesArray;
-        }
-        
-        public void Move()
-        {
-            return;
+            _shootDirection = shootDirection;
+            _speed = speed;
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void Update()
         {
-            throw new NotImplementedException();
+            transform.Translate(_shootDirection * (_speed * Time.deltaTime));
         }
     }
 }

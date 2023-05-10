@@ -1,7 +1,7 @@
-using System;
 using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
+using Entities.Weapon.WeaponInfo;
 using UnityEngine;
 
 namespace Entities.Tanks
@@ -9,6 +9,7 @@ namespace Entities.Tanks
     public abstract class Tank : MonoBehaviour
     {
         [SerializeField] protected float Speed;
+        [SerializeField] protected WeaponInfo WeaponInfo;
     
         protected Weapon.WeaponTypes.Weapon Weapon;
         protected IMoveType MoveType;
@@ -63,7 +64,7 @@ namespace Entities.Tanks
 
         private void OnShootStateChanged()
         {
-            Weapon.TryShoot();
+            Weapon.ChangeShootState();
         }
     }
 }
