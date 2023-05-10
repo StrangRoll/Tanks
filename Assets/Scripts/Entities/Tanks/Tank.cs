@@ -2,14 +2,18 @@ using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
 using Entities.Weapon.WeaponInfo;
+using Systems;
 using UnityEngine;
+using Zenject;
 
 namespace Entities.Tanks
 {
     public abstract class Tank : MonoBehaviour
     {
-        [SerializeField] protected float Speed;
-        [SerializeField] protected WeaponInfo WeaponInfo;
+        [Inject] private TimeCounter _timeCounter;
+        
+        [SerializeField] private float speed;
+        [SerializeField] private WeaponInfo weaponInfo;
     
         protected Weapon.WeaponTypes.Weapon Weapon;
         protected IMoveType MoveType;
@@ -20,7 +24,7 @@ namespace Entities.Tanks
         {
             SetMoveType();
             SetMoveInput();
-            SetWeapon();
+            SetWeapon(weaponInfo, _timeCounter);
             SetWeaponInput();
         }
 
@@ -33,7 +37,7 @@ namespace Entities.Tanks
 
         private void FixedUpdate()
         {
-            MoveType.Move(Speed);
+            MoveType.Move(speed);
             Weapon.TryShoot();
         }
 
@@ -48,7 +52,7 @@ namespace Entities.Tanks
 
         protected abstract void SetMoveInput();
 
-        protected abstract void SetWeapon();
+        protected abstract void SetWeapon(WeaponInfo weaponInfo, TimeCounter timeCounter);
 
         protected abstract void SetWeaponInput();
 

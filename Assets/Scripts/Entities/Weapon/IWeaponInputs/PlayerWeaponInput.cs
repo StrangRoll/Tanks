@@ -66,7 +66,8 @@ namespace Entities.Weapon.IWeaponInputs
                 _previousDirection = newDirection;
             }
             
-            ShootDirectionChanged?.Invoke(newDirection);
+            if (newDirection != Vector2.zero)
+                ShootDirectionChanged?.Invoke(newDirection);
         }
     }
 }

@@ -1,6 +1,11 @@
+using Entities.DamagableTypes;
 using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
+using Entities.Weapon.IWeaponInputs;
+using Entities.Weapon.WeaponInfo;
+using Entities.Weapon.WeaponTypes;
 using InputSystem;
+using Systems;
 using UnityEngine;
 
 namespace Entities.Tanks.PlayerTanks
@@ -9,6 +14,7 @@ namespace Entities.Tanks.PlayerTanks
     {
         [SerializeField] private PlayerInputRoot playerInputRoot;
         [SerializeField] private PlayerTankType tankType;
+        [SerializeField] private DamagableEntitieTypes[] damagableEntities;
 
         protected override void SetMoveType()
         {
@@ -20,14 +26,14 @@ namespace Entities.Tanks.PlayerTanks
             MoveInput = new PlayerMoveInput(playerInputRoot, tankType);
         }
 
-        protected override void SetWeapon()
+        protected override void SetWeapon(WeaponInfo weapon, TimeCounter timeCounter)
         {
-            return;
+            Weapon = new Pistol(damagableEntities, transform, weapon, timeCounter);
         }
 
         protected override void SetWeaponInput()
         {
-            throw new System.NotImplementedException();
+            WeaponInput = new PlayerWeaponInput(playerInputRoot, tankType);
         }
     }
 }
