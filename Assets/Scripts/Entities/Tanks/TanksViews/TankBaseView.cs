@@ -15,7 +15,7 @@ namespace Entities.Tanks.TanksViews
         public void ChangeDirectionView(Vector2 directionView)
         {
             if (directionView == Vector2.zero)
-                return;
+                return;     
             
             var targetPosition = (Vector2)_baseTransform.position + directionView;
         
