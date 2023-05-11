@@ -7642,7 +7642,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -12238,7 +12238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b0ce14279849b3a674248c58a615c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 7207924299258619101, guid: 4a92217a56d48d34395fd053c9afd0d9, type: 3}
+  playerPrefab: {fileID: 8151110542112048758, guid: 4a92217a56d48d34395fd053c9afd0d9, type: 3}
   leftTankStartPos: {fileID: 1711126150}
   rightTankStartPos: {fileID: 1596308219}
 --- !u!1 &1891239670

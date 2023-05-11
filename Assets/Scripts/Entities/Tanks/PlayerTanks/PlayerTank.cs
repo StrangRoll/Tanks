@@ -16,9 +16,9 @@ namespace Entities.Tanks.PlayerTanks
         [SerializeField] private PlayerTankType tankType;
         [SerializeField] private DamagableEntitieTypes[] damagableEntities;
 
-        protected override void SetMoveType()
+        protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {
-            MoveType = new SimpleMoving(transform);
+            MoveType = new SimpleMoving(rigidbodyToMove);
         }
 
         protected override void SetMoveInput()

@@ -4,17 +4,17 @@ namespace Entities.Move.MoveTypes
 {
     public class SimpleMoving : IMoveType
     {
-        private readonly Transform _movingObject;
+        private readonly Rigidbody2D _movingRigidbody;
         private Vector2 _direction;
         
-        public SimpleMoving(Transform objectToMove)
+        public SimpleMoving(Rigidbody2D rigidbodyToMove)
         {
-            _movingObject = objectToMove;
+            _movingRigidbody = rigidbodyToMove;
         }
 
         public void Move(float speed)
         {
-            _movingObject.Translate(_direction * (Time.deltaTime * speed));
+            _movingRigidbody.MovePosition(_movingRigidbody.position + _direction * (Time.deltaTime * speed));
 
         }
 
