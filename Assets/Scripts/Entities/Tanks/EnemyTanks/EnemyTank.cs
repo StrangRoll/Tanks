@@ -1,20 +1,19 @@
+using AI;
 using Entities.DamagableTypes;
-using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
 using Entities.Weapon.WeaponInfos;
 using Entities.Weapon.WeaponTypes;
-using InputSystem;
 using Systems;
 using UnityEngine;
 
-namespace Entities.Tanks.PlayerTanks
+namespace Entities.Tanks
 {
-    public class PlayerTank : Tank
+    public class EnemyTank : Tank
     {
-        [SerializeField] private PlayerInputRoot playerInputRoot;
-        [SerializeField] private PlayerTankType tankType;
         [SerializeField] private DamagableEntitieTypes[] damagableEntities;
+        [SerializeField] private EnemyPathFinder pathFinder;
+        [SerializeField] private float timeToActivate;
 
         protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {
@@ -23,17 +22,17 @@ namespace Entities.Tanks.PlayerTanks
 
         protected override void SetMoveInput(TimeCounter timeCounter)
         {
-            MoveInput = new PlayerMoveInput(playerInputRoot, tankType);
+            throw new System.NotImplementedException();
         }
 
-        protected override void SetWeapon(WeaponInfo weapon, TimeCounter timeCounter)
+        protected override void SetWeapon(WeaponInfo weaponInfo, TimeCounter timeCounter)
         {
-            Weapon = new Pistol(damagableEntities, transform, weapon, timeCounter);
+            Weapon = new Pistol(damagableEntities, transform, weaponInfo, timeCounter);
         }
 
         protected override void SetWeaponInput(TimeCounter timeCounter)
         {
-            WeaponInput = new PlayerWeaponInput(playerInputRoot, tankType);
+            WeaponInput = new EnemyWeaponInput(pathFinder, timeToActivate, timeCounter);
         }
     }
 }

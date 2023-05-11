@@ -33,9 +33,9 @@ namespace Entities.Tanks
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             SetMoveType(_rigidbody2D);
-            SetMoveInput();
+            SetMoveInput(_timeCounter);
             SetWeapon(weaponInfo, _timeCounter);
-            SetWeaponInput();
+            SetWeaponInput(_timeCounter);
             _tankView = new TankView(tankViewInfo, weaponSpriteRenderer, baseSpriteRenderer);
             
             MoveInput.DirectionChanged += OnDirectionChanged;
@@ -63,11 +63,11 @@ namespace Entities.Tanks
 
         protected abstract void SetMoveType(Rigidbody2D rigidbodyToMove);
 
-        protected abstract void SetMoveInput();
+        protected abstract void SetMoveInput(TimeCounter timeCounter);
 
         protected abstract void SetWeapon(WeaponInfo weaponInfo, TimeCounter timeCounter);
 
-        protected abstract void SetWeaponInput();
+        protected abstract void SetWeaponInput(TimeCounter timeCounter);
 
         private void OnShootDirectionChanged(Vector2 newDirection)
         {
