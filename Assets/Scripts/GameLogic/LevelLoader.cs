@@ -17,8 +17,7 @@ namespace GameLogic
 
         public void LoadScene()
         {
-            var operation = SceneManager.LoadSceneAsync(_sceneToLoad.Name);
-            operation.allowSceneActivation = false;
+            SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
 }

@@ -46,6 +46,7 @@ namespace Entities.Weapon.WeaponTypes
         
         protected abstract void Shoot(float bulletSpeed, Bullet bulletPrefab, Vector2 shootDirection, 
             Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray);
+        
         private void Reload()
         {
             _timeCounter.SetTimer(_weaponInfo.ReloadTime, () => { _isReadyToFire = true;});

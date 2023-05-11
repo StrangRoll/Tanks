@@ -6,13 +6,12 @@ using Entities.Weapon.IWeaponInputs;
 using Entities.Weapon.WeaponInfos;
 using Systems;
 using UnityEngine;
-using Zenject;
 
 namespace Entities.Tanks
 {
     public abstract class Tank : MonoBehaviour
     {
-        [Inject] private TimeCounter _timeCounter;
+        private TimeCounter _timeCounter;
         
         [SerializeField] private float speed;
         [SerializeField] private WeaponInfo weaponInfo;
@@ -27,17 +26,14 @@ namespace Entities.Tanks
         
         private TankView _tankView;
 
-        private void Awake()
+        private void Start()
         {
             SetMoveType();
             SetMoveInput();
             SetWeapon(weaponInfo, _timeCounter);
             SetWeaponInput();
             _tankView = new TankView(tankViewInfo, weaponSpriteRenderer, baseSpriteRenderer);
-        }
-
-        private void OnEnable()
-        {
+            
             MoveInput.DirectionChanged += OnDirectionChanged;
             WeaponInput.ShootDirectionChanged += OnShootDirectionChanged;
             WeaponInput.ShootStateChanged += OnShootStateChanged;
@@ -49,11 +45,16 @@ namespace Entities.Tanks
             Weapon.TryShoot();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             MoveInput.DirectionChanged -= OnDirectionChanged;
             WeaponInput.ShootDirectionChanged += OnShootDirectionChanged;
             WeaponInput.ShootStateChanged -= OnShootStateChanged;
+        }
+
+        public void Init(TimeCounter timeCounter)
+        {
+            _timeCounter = timeCounter;
         }
 
         protected abstract void SetMoveType();

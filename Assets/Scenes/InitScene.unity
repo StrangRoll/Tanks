@@ -645,6 +645,7 @@ MonoBehaviour:
     _name: Level1
     _path: Assets/Scenes/Level1.unity
     _buildIndex: 1
+  player: {fileID: 7207924299258619101, guid: 4a92217a56d48d34395fd053c9afd0d9, type: 3}
 --- !u!4 &1443564335
 Transform:
   m_ObjectHideFlags: 0
