@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2377df0828ae414a8aeb80e4ca89ae47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 2
   weaponInfo: {fileID: 11400000, guid: e6c534d0c7c244549a8e6eee1b7db7d9, type: 2}
   tankViewInfo: {fileID: 11400000, guid: f8c5f9f818750b347b46da3b2b42dee4, type: 2}
   weaponSpriteRenderer: {fileID: 7207924299882380387}
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2377df0828ae414a8aeb80e4ca89ae47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 2
   weaponInfo: {fileID: 11400000, guid: e6c534d0c7c244549a8e6eee1b7db7d9, type: 2}
   tankViewInfo: {fileID: 11400000, guid: 170a6de8de67b4a4880415f06d2b5ca3, type: 2}
   weaponSpriteRenderer: {fileID: 7207924299376921183}
