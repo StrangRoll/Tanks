@@ -1,5 +1,4 @@
 using Entities;
-using NTC.Global.Pool;
 using Systems;
 using UnityEngine;
 using Zenject;
@@ -16,7 +15,7 @@ namespace GameLogic.LevelActivators
         
         private void Awake()
         {
-            var player = NightPool.Spawn(playerPrefab);
+            var player = Instantiate(playerPrefab);
             player.Init(leftTankStartPos, rightTankStartPos, _timeCounter);
         }
     }

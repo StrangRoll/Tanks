@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Pistol
   reloadTime: 0.5
-  bulletSpeed: 30
+  bulletSpeed: 15
   bulletPrefab: {fileID: -2222275502219710882, guid: 07987efdf423153439eeec15b09cbc46, type: 3}

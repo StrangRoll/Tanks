@@ -18,7 +18,7 @@ namespace Entities.Bullets
 
         private void Update()
         {
-            transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
+            transform.Translate(Vector3.up * (_speed * Time.deltaTime));
         }
 
         public void Init(DamagableEntitieTypes[] damagableEntitiesArray, Vector2 shootDirection, float speed)
