@@ -43,7 +43,7 @@ namespace Entities.Tanks
             WeaponInput.ShootStateChanged += OnShootStateChanged;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             MoveType.Move(speed);
             Weapon.TryShoot();

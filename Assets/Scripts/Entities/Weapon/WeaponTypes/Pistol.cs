@@ -17,6 +17,7 @@ namespace Entities.Weapon.WeaponTypes
         Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray)
         {
             var newBullet = NightPool.Spawn(bulletPrefab, bulletSpawnPosition, Quaternion.identity);
+            newBullet.transform.SetParent(null);
             newBullet.Init(damagableEntitiesArray, shootDirection, bulletSpeed);
         }
     }

@@ -14,7 +14,7 @@ namespace Entities.Move.MoveTypes
 
         public void Move(float speed)
         {
-            _movingObject.Translate(_direction * Time.deltaTime * speed);
+            _movingObject.Translate(_direction * (Time.deltaTime * speed));
 
         }
 
