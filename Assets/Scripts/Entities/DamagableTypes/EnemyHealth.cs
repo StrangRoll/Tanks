@@ -9,7 +9,7 @@ namespace Entities.DamagableTypes
         
         public void TakeDamage()
         {
-            NightPool.Despawn(gameObject);
+            Destroy(gameObject);
         }
     }
 }

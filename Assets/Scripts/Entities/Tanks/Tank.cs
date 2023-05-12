@@ -29,9 +29,14 @@ namespace Entities.Tanks
         
         private TankView _tankView;
         private Rigidbody2D _rigidbody2D;
+        private bool _isFirstTime = true;
 
         private void Start()
         {
+            if (_isFirstTime == false)
+                return;
+
+            _isFirstTime = false;
             _rigidbody2D = GetComponent<Rigidbody2D>();
             SetMoveType(_rigidbody2D);
             SetMoveInput(_timeCounter);

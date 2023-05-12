@@ -20,7 +20,7 @@ namespace GameLogic
         [Inject] private TimeCounter _timeCounter;
 
         private int _count = 1;
-        private WaitForSeconds _waitForSeconds = new WaitForSeconds(8f);
+        private float _time = 8f;
 
         private void Start()
         {
@@ -39,7 +39,8 @@ namespace GameLogic
                 }
 
                 _count++;
-                yield return _waitForSeconds;
+                yield return new WaitForSeconds(_time);
+                _time += 1f;
             }
         }
 
@@ -50,11 +51,11 @@ namespace GameLogic
             var spawnPositionIndexLeft = Random.Range(0, spawnPositionsLeft.Length);
             var spawnPositionIndexRight = Random.Range(0, spawnPositionsRight.Length);;
 
-            var tankLeft = NightPool.Spawn(enemyTanksPrefab[tankIndexLeft], spawnPositionsLeft[spawnPositionIndexLeft].position, Quaternion.identity);
+            var tankLeft = Instantiate(enemyTanksPrefab[tankIndexLeft], spawnPositionsLeft[spawnPositionIndexLeft].position, Quaternion.identity);
             tankLeft.Init(_timeCounter);
             tankLeft.GetComponent<AIDestinationSetter>().target = activator.LeftTank.transform;
             
-            var tankRight = NightPool.Spawn(enemyTanksPrefab[tankIndexRight], spawnPositionsRight[spawnPositionIndexRight].position, Quaternion.identity);
+            var tankRight = Instantiate(enemyTanksPrefab[tankIndexRight], spawnPositionsRight[spawnPositionIndexRight].position, Quaternion.identity);
             tankRight.Init(_timeCounter);
             tankRight.GetComponent<AIDestinationSetter>().target = activator.RightTank.transform;
         }

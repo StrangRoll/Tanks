@@ -1,3 +1,4 @@
+using System;
 using AI;
 using Entities.DamagableTypes;
 using Entities.Move.MoveInputs;
@@ -15,7 +16,6 @@ namespace Entities.Tanks
     {
         [SerializeField] private DamagableEntitieTypes[] damagableEntities;
         [SerializeField] private float timeToActivate;
-        [SerializeField] private AIDestinationSetter aiDestinationSetter;
 
         protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {

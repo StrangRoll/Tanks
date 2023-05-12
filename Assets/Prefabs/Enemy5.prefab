@@ -206,9 +206,8 @@ MonoBehaviour:
   weaponSpriteRenderer: {fileID: 6513694714793111111}
   baseSpriteRenderer: {fileID: 6513694715852424354}
   isFlip: 1
-  damagableEntities: 000000000300000004000000
-  timeToActivate: 0.5
-  aiDestinationSetter: {fileID: 6513694715602179453}
+  damagableEntities: 030000000400000000000000
+  timeToActivate: 2
 --- !u!114 &6513694715602179452
 MonoBehaviour:
   m_ObjectHideFlags: 0

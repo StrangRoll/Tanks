@@ -185,9 +185,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00030368567, y: 0.0005635917}
+  m_Offset: {x: -0.00030368567, y: -0.00030988455}
   serializedVersion: 2
-  m_Radius: 0.16219905
+  m_Radius: 0.18082589
 --- !u!114 &6513694715602179426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +206,8 @@ MonoBehaviour:
   weaponSpriteRenderer: {fileID: 6513694714793111111}
   baseSpriteRenderer: {fileID: 6513694715852424354}
   isFlip: 1
-  damagableEntities: 000000000300000004000000
-  timeToActivate: 0.5
-  aiDestinationSetter: {fileID: 6513694715602179453}
+  damagableEntities: 030000000400000000000000
+  timeToActivate: 2
 --- !u!114 &6513694715602179452
 MonoBehaviour:
   m_ObjectHideFlags: 0
