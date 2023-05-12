@@ -1,5 +1,6 @@
 using AI;
 using Entities.DamagableTypes;
+using Entities.Move.MoveInputs;
 using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
 using Entities.Weapon.WeaponInfos;
@@ -12,17 +13,16 @@ namespace Entities.Tanks
     public class EnemyTank : Tank
     {
         [SerializeField] private DamagableEntitieTypes[] damagableEntities;
-        [SerializeField] private EnemyPathFinder pathFinder;
         [SerializeField] private float timeToActivate;
 
         protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {
-            MoveType = new SimpleMoving(rigidbodyToMove);
+            MoveType = new NullMoveType();
         }
 
         protected override void SetMoveInput(TimeCounter timeCounter)
         {
-            throw new System.NotImplementedException();
+            MoveInput = new NullMoveInput();
         }
 
         protected override void SetWeapon(WeaponInfo weaponInfo, TimeCounter timeCounter)
@@ -32,7 +32,7 @@ namespace Entities.Tanks
 
         protected override void SetWeaponInput(TimeCounter timeCounter)
         {
-            WeaponInput = new EnemyWeaponInput(pathFinder, timeToActivate, timeCounter);
+            WeaponInput = new EnemyWeaponInput(timeToActivate, timeCounter);
         }
     }
 }

@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Entities.Move.MoveTypes
 {
-    public class SimpleMoving : IMoveType
+    public class SimplePhysicsMoving : IMoveType
     {
         private readonly Rigidbody2D _movingRigidbody;
         private Vector2 _direction;
         
-        public SimpleMoving(Rigidbody2D rigidbodyToMove)
+        public SimplePhysicsMoving(Rigidbody2D rigidbodyToMove)
         {
             _movingRigidbody = rigidbodyToMove;
         }
@@ -15,7 +15,6 @@ namespace Entities.Move.MoveTypes
         public void Move(float speed)
         {
             _movingRigidbody.MovePosition(_movingRigidbody.position + _direction * (Time.deltaTime * speed));
-
         }
 
         public void ChangeDirection(Vector2 newDirection)

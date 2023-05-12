@@ -18,7 +18,7 @@ namespace Entities.Tanks.PlayerTanks
 
         protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {
-            MoveType = new SimpleMoving(rigidbodyToMove);
+            MoveType = new SimplePhysicsMoving(rigidbodyToMove);
         }
 
         protected override void SetMoveInput(TimeCounter timeCounter)
