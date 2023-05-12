@@ -5,6 +5,7 @@ using Entities.Move.MoveTypes;
 using Entities.Weapon.IWeaponInputs;
 using Entities.Weapon.WeaponInfos;
 using Entities.Weapon.WeaponTypes;
+using Pathfinding;
 using Systems;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Entities.Tanks
     {
         [SerializeField] private DamagableEntitieTypes[] damagableEntities;
         [SerializeField] private float timeToActivate;
+        [SerializeField] private AIDestinationSetter aiDestinationSetter;
 
         protected override void SetMoveType(Rigidbody2D rigidbodyToMove)
         {

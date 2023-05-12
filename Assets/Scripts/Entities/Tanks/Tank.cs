@@ -34,19 +34,19 @@ namespace Entities.Tanks
             _rigidbody2D = GetComponent<Rigidbody2D>();
             SetMoveType(_rigidbody2D);
             SetMoveInput(_timeCounter);
-            //SetWeapon(weaponInfo, _timeCounter);
-            //SetWeaponInput(_timeCounter);
+            SetWeapon(weaponInfo, _timeCounter);
+            SetWeaponInput(_timeCounter);
             _tankView = new TankView(tankViewInfo, weaponSpriteRenderer, baseSpriteRenderer);
 
             MoveInput.DirectionChanged += OnDirectionChanged;
-            //WeaponInput.ShootDirectionChanged += OnShootDirectionChanged;
-            //WeaponInput.ShootStateChanged += OnShootStateChanged;
+            WeaponInput.ShootDirectionChanged += OnShootDirectionChanged;
+            WeaponInput.ShootStateChanged += OnShootStateChanged;
         }
 
         private void FixedUpdate()
         {
             MoveType.Move(speed);
-            //Weapon.TryShoot();
+            Weapon.TryShoot();
         }
 
         private void OnDestroy()
