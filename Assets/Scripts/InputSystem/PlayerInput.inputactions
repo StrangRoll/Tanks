@@ -136,6 +136,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Game",
+            "id": "a5e824ab-a6b1-4fc7-8f93-db690ee2318c",
+            "actions": [
+                {
+                    "name": "ReloadGame",
+                    "type": "Button",
+                    "id": "1988215c-e21c-444e-a869-0afdcf40d98e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ba63903a-1a7e-47e1-b3c1-ce40388ade7d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ReloadGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -19,8 +19,8 @@ namespace GameLogic
         
         [Inject] private TimeCounter _timeCounter;
 
-        private int _count = 1;
-        private float _time = 8f;
+        private float _count = 1;
+        private float _time = 6f;
 
         private void Start()
         {
@@ -38,9 +38,9 @@ namespace GameLogic
                     SpawnNewEnemy();
                 }
 
-                _count++;
+                _count += .5f;
                 yield return new WaitForSeconds(_time);
-                _time += 1f;
+                _time += .5f;
             }
         }
 

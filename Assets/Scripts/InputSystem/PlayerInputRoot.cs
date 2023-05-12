@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -21,6 +22,11 @@ namespace InputSystem
             _playerInput.Enable();
             _playerInput.Tanks.LeftMove.performed += OnLeftMove;
             _playerInput.Tanks.RightMove.performed += OnRightMove;
+        }
+
+        private void OnDisable()
+        {
+            _playerInput.Disable();
         }
 
         private void OnLeftMove(InputAction.CallbackContext context)

@@ -158,6 +158,34 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Game"",
+            ""id"": ""a5e824ab-a6b1-4fc7-8f93-db690ee2318c"",
+            ""actions"": [
+                {
+                    ""name"": ""ReloadGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""1988215c-e21c-444e-a869-0afdcf40d98e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ba63903a-1a7e-47e1-b3c1-ce40388ade7d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""ReloadGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -178,6 +206,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Tanks = asset.FindActionMap("Tanks", throwIfNotFound: true);
         m_Tanks_LeftMove = m_Tanks.FindAction("LeftMove", throwIfNotFound: true);
         m_Tanks_RightMove = m_Tanks.FindAction("RightMove", throwIfNotFound: true);
+        // Game
+        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
+        m_Game_ReloadGame = m_Game.FindAction("ReloadGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -289,6 +320,52 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public TanksActions @Tanks => new TanksActions(this);
+
+    // Game
+    private readonly InputActionMap m_Game;
+    private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
+    private readonly InputAction m_Game_ReloadGame;
+    public struct GameActions
+    {
+        private @PlayerInput m_Wrapper;
+        public GameActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ReloadGame => m_Wrapper.m_Game_ReloadGame;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void AddCallbacks(IGameActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameActionsCallbackInterfaces.Add(instance);
+            @ReloadGame.started += instance.OnReloadGame;
+            @ReloadGame.performed += instance.OnReloadGame;
+            @ReloadGame.canceled += instance.OnReloadGame;
+        }
+
+        private void UnregisterCallbacks(IGameActions instance)
+        {
+            @ReloadGame.started -= instance.OnReloadGame;
+            @ReloadGame.performed -= instance.OnReloadGame;
+            @ReloadGame.canceled -= instance.OnReloadGame;
+        }
+
+        public void RemoveCallbacks(IGameActions instance)
+        {
+            if (m_Wrapper.m_GameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GameActions @Game => new GameActions(this);
     private int m_PCSchemeIndex = -1;
     public InputControlScheme PCScheme
     {
@@ -302,5 +379,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnLeftMove(InputAction.CallbackContext context);
         void OnRightMove(InputAction.CallbackContext context);
+    }
+    public interface IGameActions
+    {
+        void OnReloadGame(InputAction.CallbackContext context);
     }
 }
