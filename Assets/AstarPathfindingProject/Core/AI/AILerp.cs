@@ -37,7 +37,8 @@ namespace Pathfinding {
 	[RequireComponent(typeof(Seeker))]
 	[AddComponentMenu("Pathfinding/AI/AILerp (2D,3D)")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_lerp.php")]
-	public class AILerp : VersionedMonoBehaviour, IAstarAI {
+	public class AILerp : VersionedMonoBehaviour, IAstarAI
+	{
 		/// <summary>
 		/// Determines how often it will search for new paths.
 		/// If you have fast moving targets or AIs, you might want to set it to a lower value.
@@ -46,6 +47,7 @@ namespace Pathfinding {
 		/// Deprecated: This has been renamed to \reflink{autoRepath.interval}.
 		/// See: \reflink{AutoRepathPolicy}
 		/// </summary>
+		///
 		public float repathRate {
 			get {
 				return this.autoRepath.interval;
@@ -627,7 +629,7 @@ namespace Pathfinding {
 			nextPosition = CalculateNextPosition(out direction, isStopped ? 0f : deltaTime);
 
 			if (enableRotation) nextRotation = SimulateRotationTowards(direction, deltaTime);
-			else nextRotation = simulatedRotation;
+			else nextRotation = simulatedRotation;			
 		}
 
 		/// <summary>\copydoc Pathfinding::IAstarAI::FinalizeMovement</summary>

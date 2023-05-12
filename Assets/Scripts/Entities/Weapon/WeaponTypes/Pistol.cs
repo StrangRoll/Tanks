@@ -14,11 +14,15 @@ namespace Entities.Weapon.WeaponTypes
         }
 
         protected override void Shoot(float bulletSpeed, Bullet bulletPrefab, Vector2 shootDirection,
-        Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray)
+        Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray, bool isFlip)
         {
-            var newBullet = NightPool.Spawn(bulletPrefab, bulletSpawnPosition, Quaternion.identity);
+            var newBullet = NightPool.Spawn(bulletPrefab, bulletSpawnPosition);
+            
+            newBullet.transform.parent = null;
             newBullet.transform.SetParent(null);
             newBullet.Init(damagableEntitiesArray, shootDirection, bulletSpeed);
+            if (isFlip)
+                newBullet.transform.Rotate(0,0,180);
         }
     }
 }

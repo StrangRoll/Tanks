@@ -20,6 +20,7 @@ namespace Entities.Tanks
         [SerializeField] private TankViewInfo tankViewInfo;
         [SerializeField] private SpriteRenderer weaponSpriteRenderer;
         [SerializeField] private SpriteRenderer baseSpriteRenderer;
+        [SerializeField] private bool isFlip;
     
         protected Weapon.WeaponTypes.Weapon Weapon;
         protected IMoveType MoveType;
@@ -46,7 +47,7 @@ namespace Entities.Tanks
         private void FixedUpdate()
         {
             MoveType.Move(speed);
-            Weapon.TryShoot();
+            Weapon.TryShoot(isFlip);
         }
 
         private void OnDestroy()

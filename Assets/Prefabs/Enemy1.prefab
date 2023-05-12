@@ -204,9 +204,10 @@ MonoBehaviour:
   tankViewInfo: {fileID: 11400000, guid: 9685fc2cdb58eb549bad5f6f42d6ca0c, type: 2}
   weaponSpriteRenderer: {fileID: 6513694714793111111}
   baseSpriteRenderer: {fileID: 6513694715852424354}
+  isFlip: 1
   damagableEntities: 
   timeToActivate: 0.5
-  aiDestinationSetter: {fileID: 0}
+  aiDestinationSetter: {fileID: 6513694715602179453}
 --- !u!114 &6513694715602179452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  weapon: {fileID: 6513694714793111110}
 --- !u!1 &6513694715852424356
 GameObject:
   m_ObjectHideFlags: 0

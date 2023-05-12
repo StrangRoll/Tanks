@@ -25,11 +25,11 @@ namespace Entities.Weapon.WeaponTypes
             _timeCounter = timeCounter;
         }
 
-        public void TryShoot()
+        public void TryShoot(bool isFlip)
         {
             if (_isReadyToFire == false || _isFireButtonPress == false) return;
             
-            Shoot(_weaponInfo.BulletSpeed, _weaponInfo.BulletPrefab, _shootDirection, _bulletSpawnPosition, _damagableEntitiesArray);
+            Shoot(_weaponInfo.BulletSpeed, _weaponInfo.BulletPrefab, _shootDirection, _bulletSpawnPosition, _damagableEntitiesArray, isFlip);
             _isReadyToFire = false;
             Reload();
         }
@@ -45,7 +45,7 @@ namespace Entities.Weapon.WeaponTypes
         }
         
         protected abstract void Shoot(float bulletSpeed, Bullet bulletPrefab, Vector2 shootDirection, 
-            Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray);
+            Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray, bool isFlip);
         
         private void Reload()
         {
