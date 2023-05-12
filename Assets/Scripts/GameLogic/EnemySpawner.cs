@@ -41,7 +41,6 @@ namespace GameLogic
                 _count++;
                 yield return _waitForSeconds;
             }
-            
         }
 
         private void SpawnNewEnemy()

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6552b2dd3e4b54b5c17f5b8d3a513c, type: 3}
-  m_Name: EnemyPistol
+  m_Script: {fileID: 11500000, guid: ad1d262ad0254db6acbee4caadf12774, type: 3}
+  m_Name: EnemyTankBlack+
   m_EditorClassIdentifier: 
-  weaponName: Pistol
-  reloadTime: 2.5
-  bulletSpeed: 15
-  bulletPrefab: {fileID: -2222275502219710882, guid: 07987efdf423153439eeec15b09cbc46, type: 3}
+  baseSprite: {fileID: 225563021, guid: 5fdd3485e98cd154d90350e93e9162f4, type: 3}
+  weaponSprite: {fileID: 683285758, guid: 5fdd3485e98cd154d90350e93e9162f4, type: 3}

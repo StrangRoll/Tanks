@@ -1,5 +1,7 @@
 using System;
 using Entities.DamagableTypes;
+using ModestTree;
+using NTC.Global.Pool;
 using UnityEngine;
 
 namespace Entities.Bullets
@@ -27,6 +29,16 @@ namespace Entities.Bullets
             _shootDirection = shootDirection;
             _speed = speed;
             _bulletView.ChangeDirectionView(shootDirection);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.TryGetComponent(out IDamagable damagable) == false) return;
+            
+            if (Array.IndexOf(_damagableEntitiesArray, damagable.DamagableType) == -1) return;
+                
+            NightPool.Despawn(gameObject);
+            damagable.TakeDamage();
         }
     }
 }

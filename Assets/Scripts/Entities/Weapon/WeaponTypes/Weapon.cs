@@ -3,6 +3,7 @@ using Entities.DamagableTypes;
 using Entities.Weapon.WeaponInfos;
 using Systems;
 using UnityEngine;
+using Bullet = Entities.Bullets.Bullet;
 
 namespace Entities.Weapon.WeaponTypes
 {

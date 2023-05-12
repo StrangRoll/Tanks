@@ -100,9 +100,9 @@ GameObject:
   - component: {fileID: 6513694715602179452}
   - component: {fileID: 6513694715602179455}
   - component: {fileID: 6513694715602179453}
-  - component: {fileID: -1348603271192010656}
+  - component: {fileID: 8863495611338519757}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.25
   weaponInfo: {fileID: 11400000, guid: ee105797a41b2234e9e83d9a7b0a9ca6, type: 2}
-  tankViewInfo: {fileID: 11400000, guid: 9685fc2cdb58eb549bad5f6f42d6ca0c, type: 2}
+  tankViewInfo: {fileID: 11400000, guid: f169969eb2684a643bac91534462e4d2, type: 2}
   weaponSpriteRenderer: {fileID: 6513694714793111111}
   baseSpriteRenderer: {fileID: 6513694715852424354}
   isFlip: 1
@@ -281,7 +281,7 @@ MonoBehaviour:
   version: 1
   target: {fileID: 0}
   weapon: {fileID: 6513694714793111110}
---- !u!114 &-1348603271192010656
+--- !u!114 &8863495611338519757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

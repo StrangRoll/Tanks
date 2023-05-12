@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5062029292887411855}
   - component: {fileID: 834378343015056856}
   - component: {fileID: 4470031539247448247}
+  - component: {fileID: 5075786983673897340}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -138,9 +139,10 @@ MonoBehaviour:
   tankViewInfo: {fileID: 11400000, guid: f8c5f9f818750b347b46da3b2b42dee4, type: 2}
   weaponSpriteRenderer: {fileID: 2475915661816613749}
   baseSpriteRenderer: {fileID: 783754908665570840}
+  isFlip: 0
   playerInputRoot: {fileID: 8913668166075602231}
   tankType: 1
-  damagableEntities: 
+  damagableEntities: 010000000300000004000000
 --- !u!61 &5062029292887411855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,6 +206,19 @@ CircleCollider2D:
   m_Offset: {x: -0.0001270771, y: 0}
   serializedVersion: 2
   m_Radius: 0.16350126
+--- !u!114 &5075786983673897340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430737314577484513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d688725172534d22995daba10b4ed743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8151110542112048758}
 --- !u!1 &3584514898937203142
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +461,7 @@ GameObject:
   - component: {fileID: 3694440098537405851}
   - component: {fileID: 8408137631433426209}
   - component: {fileID: 131941402356129440}
+  - component: {fileID: 1886339350752632072}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -487,9 +503,10 @@ MonoBehaviour:
   tankViewInfo: {fileID: 11400000, guid: 170a6de8de67b4a4880415f06d2b5ca3, type: 2}
   weaponSpriteRenderer: {fileID: 6472960471763168726}
   baseSpriteRenderer: {fileID: 367580435502985321}
+  isFlip: 0
   playerInputRoot: {fileID: 8913668166075602231}
   tankType: 0
-  damagableEntities: 
+  damagableEntities: 010000000300000004000000
 --- !u!50 &3694440098537405851
 Rigidbody2D:
   serializedVersion: 4
@@ -553,6 +570,19 @@ CircleCollider2D:
   m_Offset: {x: -0.00030368567, y: 0.0005635917}
   serializedVersion: 2
   m_Radius: 0.16219905
+--- !u!114 &1886339350752632072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313194384394736510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d688725172534d22995daba10b4ed743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8151110542112048758}
 --- !u!1 &8836105204167559889
 GameObject:
   m_ObjectHideFlags: 0

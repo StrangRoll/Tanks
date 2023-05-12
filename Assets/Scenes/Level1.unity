@@ -7910,7 +7910,8 @@ GameObject:
   - component: {fileID: 520422378}
   - component: {fileID: 520422377}
   - component: {fileID: 520422379}
-  - component: {fileID: 520422380}
+  - component: {fileID: 520422381}
+  - component: {fileID: 520422382}
   m_Layer: 3
   m_Name: NonDestroyableObstacles
   m_TagString: Untagged
@@ -12084,7 +12085,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
---- !u!114 &520422380
+--- !u!114 &520422381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12093,13 +12094,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 520422375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Script: {fileID: 11500000, guid: a94169776e18468089a30d9a5091b3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
+--- !u!50 &520422382
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520422375}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &585508464
 GameObject:
   m_ObjectHideFlags: 0
@@ -12824,6 +12842,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTanksPrefab:
   - {fileID: 6513694715602179426, guid: 09933f5f02be2ae478f46bfb1f7462cb, type: 3}
+  - {fileID: 6513694715602179426, guid: aef0831da287ff54fae4e67bc59fa208, type: 3}
+  - {fileID: 6513694715602179426, guid: c64fde85e3e815b43b6ad37030252687, type: 3}
+  - {fileID: 6513694715602179426, guid: f3de4a5c32bd98a4b92b912022f89af4, type: 3}
+  - {fileID: 6513694715602179426, guid: b18d2e18083a73940b0ea02d1895d680, type: 3}
+  - {fileID: 6513694715602179426, guid: c83a40e8795c41349af0a43946fe7b46, type: 3}
   spawnPositionsLeft:
   - {fileID: 2147348644}
   - {fileID: 1815842547}

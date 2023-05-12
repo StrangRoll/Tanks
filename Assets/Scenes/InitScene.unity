@@ -627,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1443564334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
     _name: Level1
     _path: Assets/Scenes/Level1.unity
     _buildIndex: 1
-  player: {fileID: 7207924299258619101, guid: 4a92217a56d48d34395fd053c9afd0d9, type: 3}
+  player: {fileID: 8151110542112048758, guid: 4a92217a56d48d34395fd053c9afd0d9, type: 3}
 --- !u!4 &1443564335
 Transform:
   m_ObjectHideFlags: 0

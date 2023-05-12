@@ -4,6 +4,7 @@ using Entities.Weapon.WeaponInfos;
 using NTC.Global.Pool;
 using Systems;
 using UnityEngine;
+using Bullet = Entities.Bullets.Bullet;
 
 namespace Entities.Weapon.WeaponTypes
 {
@@ -17,7 +18,8 @@ namespace Entities.Weapon.WeaponTypes
         Transform bulletSpawnPosition, DamagableEntitieTypes[] damagableEntitiesArray, bool isFlip)
         {
             var newBullet = NightPool.Spawn(bulletPrefab, bulletSpawnPosition);
-            
+            newBullet.transform.localPosition = Vector3.zero;
+
             newBullet.transform.parent = null;
             newBullet.transform.SetParent(null);
             newBullet.Init(damagableEntitiesArray, shootDirection, bulletSpeed);
