@@ -23,11 +23,15 @@ namespace GameLogic
             _levelActivator = new Level1Activator(player);
             _levelLoader = new LevelLoader(levelScene, _levelActivator);
             SceneManager.sceneLoaded += OnSceneLoaded;
-            _levelLoader.LoadScene();
         }
 
         private void Start()
         {
+        }
+
+        public void LoadLevel()
+        {
+            _levelLoader.LoadScene();
         }
 
         public void TryLoadScene()

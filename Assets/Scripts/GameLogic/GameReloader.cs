@@ -14,6 +14,7 @@ namespace GameLogic
             _playerInput = new PlayerInput();
             _playerInput.Enable(); 
             _playerInput.Game.ReloadGame.performed += ReloadGame;
+            _playerInput.Game.ReturnToMainMenu.performed += ReturnToMainMenu; 
         }
 
         private void OnDestroy()
@@ -21,9 +22,15 @@ namespace GameLogic
             _playerInput.Disable();
         }
 
-        private void ReloadGame(InputAction.CallbackContext obj)
+        private void ReturnToMainMenu(InputAction.CallbackContext obj)
         {
             SceneManager.LoadScene(0);
+            ScoreCounter.Score = 0;
+        }
+
+        private void ReloadGame(InputAction.CallbackContext obj)
+        {
+            SceneManager.LoadScene(1);
             Time.timeScale = 1;
             ScoreCounter.Score = 0;
         }

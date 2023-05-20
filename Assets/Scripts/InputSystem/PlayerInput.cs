@@ -171,17 +171,37 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReturnToMainMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""89080f6f-07ff-4a43-bb0d-550293f5edea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""ba63903a-1a7e-47e1-b3c1-ce40388ade7d"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
                     ""action"": ""ReloadGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16485a25-bb85-4173-a317-3b2402c8c30f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReturnToMainMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -209,6 +229,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_ReloadGame = m_Game.FindAction("ReloadGame", throwIfNotFound: true);
+        m_Game_ReturnToMainMenu = m_Game.FindAction("ReturnToMainMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -325,11 +346,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Game;
     private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
     private readonly InputAction m_Game_ReloadGame;
+    private readonly InputAction m_Game_ReturnToMainMenu;
     public struct GameActions
     {
         private @PlayerInput m_Wrapper;
         public GameActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @ReloadGame => m_Wrapper.m_Game_ReloadGame;
+        public InputAction @ReturnToMainMenu => m_Wrapper.m_Game_ReturnToMainMenu;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -342,6 +365,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ReloadGame.started += instance.OnReloadGame;
             @ReloadGame.performed += instance.OnReloadGame;
             @ReloadGame.canceled += instance.OnReloadGame;
+            @ReturnToMainMenu.started += instance.OnReturnToMainMenu;
+            @ReturnToMainMenu.performed += instance.OnReturnToMainMenu;
+            @ReturnToMainMenu.canceled += instance.OnReturnToMainMenu;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -349,6 +375,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @ReloadGame.started -= instance.OnReloadGame;
             @ReloadGame.performed -= instance.OnReloadGame;
             @ReloadGame.canceled -= instance.OnReloadGame;
+            @ReturnToMainMenu.started -= instance.OnReturnToMainMenu;
+            @ReturnToMainMenu.performed -= instance.OnReturnToMainMenu;
+            @ReturnToMainMenu.canceled -= instance.OnReturnToMainMenu;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -383,5 +412,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IGameActions
     {
         void OnReloadGame(InputAction.CallbackContext context);
+        void OnReturnToMainMenu(InputAction.CallbackContext context);
     }
 }
